@@ -28,7 +28,7 @@ for letra in message:
     reflectorPosicao = reflector.index(rotorLetra)
     letrasCifradas = alphabet[reflectorPosicao]
     mensagemCifrada += letrasCifradas
-print(mensagemCifrada)
+print("A mensagem cifrada é: ", mensagemCifrada)
 
 for letra in mensagemCifrada:
     reflectorPosicao = alphabet.index(letra)
@@ -38,5 +38,5 @@ for letra in mensagemCifrada:
     letrasCifradas = alphabet[rotorPosicao]
     mensagemDecifrada += letrasCifradas
 
-print(mensagemDecifrada)
+print("A mensagem decifrada é: ", mensagemDecifrada)
 
