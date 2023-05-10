@@ -11,28 +11,32 @@ print(rotor)
 
 #Crie uma lista reflector que represente um refletor simples. Para isso, embaralhe novamente as letras do alfabeto de outra maneira. 
 
-reflected = sample(rotor, 26)
-print(reflected)
+reflector = sample(rotor, 26)
+print(reflector)
 
 #Dado um message (mensagem), você deve cifrar a mensagem da seguinte maneira: 
 #Para cada letra da mensagem, encontre sua posição no alphabet. 
 
 message = "doideira"
-cifra = []
-cifra2 = []
+mensagemCifrada = ""
+mensagemDecifrada = ''
 
-for letra in message:
-    if letra in alphabet:
-        posicao = alphabet.index(letra)
-        cifra.append(posicao)
-print(cifra)
+for letra in message: 
+    posicao = alphabet.index(letra)
+    posicao += 1
+    rotorLetra = rotor[posicao]
+    reflectorPosicao = reflector.index(rotorLetra)
+    letrasCifradas = alphabet[reflectorPosicao]
+    mensagemCifrada += letrasCifradas
+print(mensagemCifrada)
 
-#Adicione 1 à posição encontrada (simulando uma rotação simples) e, em seguida, encontre a letra correspondente no rotor. 
+for letra in mensagemCifrada:
+    reflectorPosicao = alphabet.index(letra)
+    refletidaLetra = reflector[reflectorPosicao]
+    rotorPosicao = rotor.index(refletidaLetra)
+    rotorPosicao -= 1
+    letrasCifradas = alphabet[rotorPosicao]
+    mensagemDecifrada += letrasCifradas
 
-for letra in message:
-    if letra in rotor:
-        posicao = alphabet.index(letra)
-        cifra2.append(posicao + 1)
-print(cifra2)
-
+print(mensagemDecifrada)
 
